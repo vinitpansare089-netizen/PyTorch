@@ -1,51 +1,53 @@
-                 IMAGE
-            [3 × 32 × 32]
-                   │
-                   ▼
-              CONVOLUTION
-                   │
-             8 learned filters
-                   │
-                   ▼
-          [8 × 32 × 32]
-                   │
-                   ▼
-                 ReLU
-                   │
-       remove negative activations
-                   │
-                   ▼
-          [8 × 32 × 32]
-                   │
-                   ▼
-               MAXPOOL
-                   │
-       look at 2×2 regions
-                   │
-       keep strongest activation
-                   │
-                   ▼
-          [8 × 16 × 16]
-
-
-
-IMAGE
-[1, 3, 32, 32]
-      ↓
-   Conv2d
-      ↓
-8 learned filters
-      ↓
-[1, 8, 32, 32]
-      ↓
-    ReLU
-      ↓
-positive activations
-      ↓
-[1, 8, 32, 32]
-      ↓
-  MaxPool
-      ↓
-strongest value from each 2×2 region
-      ↓
-[1, 8, 16, 16]
+                IMAGE
+            [1,3,32,32]
+                 │
+                 ▼
+        ┌─────────────────┐
+        │     Conv1       │
+        │ 3 → 8 filters   │
+        └────────┬────────┘
+                 ▼
+            [1,8,32,32]
+                 │
+                ReLU
+                 │
+                 ▼
+            [1,8,32,32]
+                 │
+              MaxPool
+                 │
+                 ▼
+            [1,8,16,16]
+                 │
+                 ▼
+        ┌─────────────────┐
+        │     Conv2       │
+        │ 8 → 16 filters  │
+        └────────┬────────┘
+                 ▼
+           [1,16,16,16]
+                 │
+                ReLU
+                 │
+                 ▼
+           [1,16,16,16]
+                 │
+              MaxPool
+                 │
+                 ▼
+            [1,16,8,8]
+                 │
+                 ▼
+              Flatten
+                 │
+                 ▼
+             [1,1024]
+                 │
+                 ▼
+              Linear
+                 │
+                 ▼
+               [1,3]////3 is called logits
+                 │
+                 ▼
+           CLASSIFICATION
