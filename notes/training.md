@@ -26,3 +26,26 @@
                    │
                    ▼
           [8 × 16 × 16]
+
+
+
+IMAGE
+[1, 3, 32, 32]
+      ↓
+   Conv2d
+      ↓
+8 learned filters
+      ↓
+[1, 8, 32, 32]
+      ↓
+    ReLU
+      ↓
+positive activations
+      ↓
+[1, 8, 32, 32]
+      ↓
+  MaxPool
+      ↓
+strongest value from each 2×2 region
+      ↓
+[1, 8, 16, 16]
