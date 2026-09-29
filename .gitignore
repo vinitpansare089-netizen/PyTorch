@@ -1,5 +1,6 @@
 # Virtual environment
 pytorch-env/
+env
 
 # Dataset
 Data/
