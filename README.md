@@ -9,7 +9,7 @@ My hands-on journey learning PyTorch and Deep Learning.
 - [x] Gradient descent
 - [x] Neural networks
 - [x] CNN
-- [ ] Transfer learning
+- [x] Transfer learning
 - [ ] Transformers
 
 ## Projects
