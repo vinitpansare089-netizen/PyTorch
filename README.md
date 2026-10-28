@@ -8,7 +8,7 @@ My hands-on journey learning PyTorch and Deep Learning.
 - [x] Autograd
 - [x] Gradient descent
 - [x] Neural networks
-- [ ] CNN
+- [x] CNN
 - [ ] Transfer learning
 - [ ] Transformers
 
